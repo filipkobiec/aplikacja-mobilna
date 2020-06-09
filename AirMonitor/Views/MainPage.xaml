@@ -4,13 +4,47 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="AirMonitor.MainPage">
+             x:Class="AirMonitor.Views.MainPage"
+             xmlns:controls="clr-namespace:AirMonitor.Views.Controls"
+             BackgroundColor="#f9f9f9">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Hey!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ScrollView>
+        <Grid>
+            <StackLayout
+                Padding= "24"
+                Spacing= "12">
+                <Frame
+                    CornerRadius="50"
+                    Padding="0"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    HeightRequest="100"
+                    WidthRequest="100"
+                    HasShadow="False"
+                    BackgroundColor="#33f069"
+                    BorderColor="Gray">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    Text="56"
+                                    FontAttributes="Bold"
+                                    TextColor="Black"
+                                    FontSize="32"/>
+                                <Span
+                                     Text="{x:Static x:Environment.NewLine}"/>
+                                <Span
+                                    Text="CAQI"
+                                    FontSize="12"
+                                    TextColor="DarkSlateGray"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
 
 </ContentPage>

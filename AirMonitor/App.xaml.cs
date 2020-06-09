@@ -1,4 +1,5 @@
 ﻿using System;
+using AirMonitor.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,8 +10,8 @@ namespace AirMonitor
         public App()
         {
             InitializeComponent();
-
             MainPage = new MainPage();
+
         }
 
         protected override void OnStart()

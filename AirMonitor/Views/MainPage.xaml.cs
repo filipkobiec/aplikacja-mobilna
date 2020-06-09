@@ -17,5 +17,9 @@ namespace AirMonitor.Views
         {
             InitializeComponent();
         }
+        private void Help_Clicked(object sender, EventArgs e)
+        {
+            DisplayAlert("Co to jest CAQI?", "Lorem ipsum.", "Zamknij");
+        }
     }
 }

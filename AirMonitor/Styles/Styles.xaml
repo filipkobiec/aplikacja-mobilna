@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+     xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Style TargetType="ContentPage" x:Key="DetailsPageStyle">
+        <Setter Property="BackgroundColor" Value="{StaticResource DetailsBackgroundColor}"/>
+    </Style>
+
+    <Style TargetType="StackLayout" x:Key="DetailsLayoutStyle">
+        <Setter Property="Padding" Value="24"/>
+        <Setter Property="Spacing" Value="12"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="CenteredTextStyle">
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+    </Style>
+
+    <Style TargetType="Frame" x:Key="CaqiFrameStyle">
+        <Setter Property="CornerRadius" Value="50"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HeightRequest" Value="100"/>
+        <Setter Property="WidthRequest" Value="100"/>
+        <Setter Property="HasShadow" Value="False"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource CaqiGoodColor}"/>
+        <Setter Property="BorderColor" Value="{StaticResource CaqiFrameBorderColor}"/>
+    </Style>
+</ResourceDictionary>

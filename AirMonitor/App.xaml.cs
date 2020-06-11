@@ -10,7 +10,7 @@ namespace AirMonitor
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage ( new HomePage());
+            MainPage = new RootTabbedPage();
 
         }
 

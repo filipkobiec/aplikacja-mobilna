@@ -6,8 +6,12 @@
              mc:Ignorable="d"
              x:Class="AirMonitor.Views.DetailsPage"
              xmlns:controls="clr-namespace:AirMonitor.Views.Controls"
+             xmlns:viewModels="clr-namespace:AirMonitor.ViewModels"
              Title="Details Page"
              Style="{StaticResource DetailsPageStyle}">
+    <ContentPage.BindingContext>
+        <viewModels:DetailsViewModel/>
+    </ContentPage.BindingContext>
 
     <ScrollView>
         <Grid>
@@ -17,7 +21,7 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span
-                                    Text="56"
+                                    Text="{ Binding CaqiValue}"
                                     Style="{StaticResource CaqiValueSpanStyle}"/>
                                 <Span
                                      Text="{x:Static x:Environment.NewLine}"/>
@@ -30,12 +34,12 @@
                 </Frame>
                 
                 <Label
-                    Text="Świetna jakość!"
+                    Text="{Binding CaqiTitle}"
                     Style="{StaticResource CaqiTitleStyle}">
                 </Label>
                 
                 <Label
-                    Text="Możesz bezpiecznie wyjść z domu bez swojej maski anty-smogowej i nie bać się o swoje zdrowie."
+                    Text="{Binding CaqiDescription}"
                     Style="{StaticResource CaqiDescriptionStyle}">
                 </Label>
 
@@ -53,13 +57,13 @@
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <Span
-                                            Text="34"
+                                            Text="{Binding Pm25Value}"
                                             Style="{StaticResource NormalTextSpanStyle}"/>
                                         <Span
                                             Text=" mg/m3 "
                                             Style="{StaticResource SmallTextSpanStyle}"/>
                                         <Span
-                                            Text="(137%)"
+                                            Text="{Binding Pm25Percent}"
                                             Style="{StaticResource NormalTextSpanStyle}"/>
                                     </FormattedString>
                                 </Label.FormattedText>
@@ -79,7 +83,7 @@
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <Span
-                                            Text="67"
+                                            Text="{Binding Pm10Value}"
                                             Style="{StaticResource NormalTextSpanStyle}"/>
 
                                         <Span
@@ -87,7 +91,7 @@
                                             Style="{StaticResource SmallTextSpanStyle}"/>
 
                                         <Span
-                                            Text="(135%)"
+                                            Text="{Binding Pm10Percent}"
                                             Style="{StaticResource NormalTextSpanStyle}"/>
 
                                     </FormattedString>
@@ -106,7 +110,7 @@
                             Style="{StaticResource NormalTextLabelStyle}"/>
 
                         <Slider
-                            Value="0.95"
+                            Value="{Binding HumidityValue}"
                             Style="{StaticResource SliderStyle}"/>
                     </StackLayout>
                 </controls:ContentWithHeader>
@@ -122,7 +126,7 @@
                         <Slider
                             Maximum="1100"
                             Minimum="900"
-                            Value="1026"
+                            Value="{Binding PressureValue}"
                             Style="{StaticResource SliderStyle}"/>
                     </StackLayout>
                 </controls:ContentWithHeader>

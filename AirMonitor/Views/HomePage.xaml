@@ -3,13 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AirMonitor.Views.HomePage"
              Title="Home Page">
-
-    <ListView ItemsSource="{Binding Items}">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell Text="{Binding Installation.Address.Description}"
+    <Grid>
+        <ListView ItemsSource="{Binding Items}" ItemTapped="ListView_ItemTapped" SelectionMode="None" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Installation.Address.Description}"
                 Detail="{Binding MeasurementItem.Indexes[0].Value, StringFormat='CAQI: {0}'}"/>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
+    </Grid>
 </ContentPage>

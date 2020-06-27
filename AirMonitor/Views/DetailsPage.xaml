@@ -6,12 +6,8 @@
              mc:Ignorable="d"
              x:Class="AirMonitor.Views.DetailsPage"
              xmlns:controls="clr-namespace:AirMonitor.Views.Controls"
-             xmlns:viewModels="clr-namespace:AirMonitor.ViewModels"
              Title="Details Page"
              Style="{StaticResource DetailsPageStyle}">
-    <ContentPage.BindingContext>
-        <viewModels:DetailsViewModel/>
-    </ContentPage.BindingContext>
 
     <ScrollView>
         <Grid>
@@ -63,7 +59,7 @@
                                             Text=" mg/m3 "
                                             Style="{StaticResource SmallTextSpanStyle}"/>
                                         <Span
-                                            Text="{Binding Pm25Percent}"
+                                            Text="{Binding Pm25Percent, StringFormat='{0}%'}"
                                             Style="{StaticResource NormalTextSpanStyle}"/>
                                     </FormattedString>
                                 </Label.FormattedText>
@@ -91,7 +87,7 @@
                                             Style="{StaticResource SmallTextSpanStyle}"/>
 
                                         <Span
-                                            Text="{Binding Pm10Percent}"
+                                            Text="{Binding Pm10Percent, StringFormat='{0}%'}"
                                             Style="{StaticResource NormalTextSpanStyle}"/>
 
                                     </FormattedString>
@@ -106,7 +102,7 @@
                 <controls:ContentWithHeader Title="Wilgotność">
                     <StackLayout>
                         <Label
-                            Text="95%"
+                            Text="{Binding HumidityValue}"
                             Style="{StaticResource NormalTextLabelStyle}"/>
 
                         <Slider
@@ -120,7 +116,7 @@
                 <controls:ContentWithHeader Title="Ciśnienie">
                     <StackLayout>
                         <Label
-                           Text="1026hPa"
+                           Text="{Binding PressureValue, StringFormat='{0} hPa'}"
                             Style="{StaticResource NormalTextLabelStyle}"/>
 
                         <Slider

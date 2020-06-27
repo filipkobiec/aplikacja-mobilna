@@ -34,8 +34,19 @@ namespace AirMonitor.ViewModels
             get => _items;
             set => SetProperty(ref _items, value);
         }
+
+        private bool _isBusy;
+
+        public bool IsBusy
+        {
+            get => _isBusy;
+            set => SetProperty(ref _isBusy, value);
+        }
+
+
         private async Task Initialize()
         {
+            IsBusy = true;
             var location = await GetLocation();
             var installations = await GetInstallations(location, maxResults: 3);
             var data = new List<AllData>();
@@ -49,6 +60,7 @@ namespace AirMonitor.ViewModels
                 });
             }
             Items = data;
+            IsBusy = false;
         }
 
         private async Task<IEnumerable<Installation>> GetInstallations(Location location, double maxDistanceInKm = 3, int maxResults = -1)
@@ -179,11 +191,11 @@ namespace AirMonitor.ViewModels
         }
 
         private ICommand _goToDetailsCommand;
-        public ICommand GoToDetailsCommand => _goToDetailsCommand ?? (_goToDetailsCommand = new Command(OnGoToDetails));
+        public ICommand GoToDetailsCommand => _goToDetailsCommand ?? (_goToDetailsCommand = new Command<AllData>(OnGoToDetails));
 
-        private void OnGoToDetails()
+        private void OnGoToDetails(AllData data)
         {
-            _navigation.PushAsync(new DetailsPage());
+            _navigation.PushAsync(new DetailsPage(data));
         }
     }
 }

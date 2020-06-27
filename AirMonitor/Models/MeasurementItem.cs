@@ -8,5 +8,6 @@ namespace AirMonitor.Models
     {
         public List<MeasurementValue> Values { get; set; }
         public List<AirQualityIndex> Indexes { get; set; }
+        public List<AirQualityStandard> Standards { get; set; }
     }
 }

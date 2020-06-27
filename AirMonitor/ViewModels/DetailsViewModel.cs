@@ -22,7 +22,7 @@ namespace AirMonitor.ViewModels
             Pm10Value = (int)(Math.Round(Values[2].Value));
             Pm10Percent = (int)(Math.Round(Standards[1].Percent));
             PressureValue = (int)(Math.Round(Values[3].Value));
-            HumidityValue = Values[4].Value;
+            HumidityValue = Values[4].Value/100;
         }
 
         private int _caqiValue;

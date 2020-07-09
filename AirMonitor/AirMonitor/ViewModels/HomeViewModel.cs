@@ -63,6 +63,15 @@ namespace AirMonitor.ViewModels
             _navigation.PushAsync(new DetailsPage(item));
         }
 
+        private ICommand _infoWindowClicked;
+        public ICommand InfoWindowClickedCommand => _infoWindowClicked ?? (_infoWindowClicked = new Command<string>(OnInfoWindowClicked));
+
+        private void OnInfoWindowClicked(String address)
+        {
+            Measurement item = Items.First<Measurement>(i => i.Installation.Address.Description.Equals(address));
+            OnGoToDetails(item);
+        }
+
         private ICommand _refreshCommand;
         public ICommand RefreshCommand => _refreshCommand ?? (_refreshCommand = new Command(async () => await OnRefreshCommand()));
 

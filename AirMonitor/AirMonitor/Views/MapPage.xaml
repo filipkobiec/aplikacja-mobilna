@@ -16,7 +16,7 @@
                 <DataTemplate>
                     <maps:Pin Position="{Binding Position}"
                               Address="{Binding Address}"
-                              Label="{Binding Label}"
+                              Label="{Binding Description}"
                               InfoWindowClicked="InfoWindow_ItemTapped"
                               />
                 </DataTemplate>

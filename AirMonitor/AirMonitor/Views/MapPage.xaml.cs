@@ -20,8 +20,9 @@ namespace AirMonitor.Views
             BindingContext = new HomeViewModel(Navigation);
         }
 
-        void InfoWindow_ItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
+        void InfoWindow_ItemTapped(Object sender, ItemTappedEventArgs e)
         {
+            _viewModel.InfoWindowClickedCommand.Execute((sender as Xamarin.Forms.Maps.Pin).Address);
         }
     }
 }
